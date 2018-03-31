@@ -7,6 +7,7 @@ var jwt = require('jsonwebtoken');
 var Movie = require('./movie');
 var dotenv = require('dotenv').config();
 var mongoose = require('mongoose');
+var Review = require('./review');
 
 mongoose.connect(process.env.mongoDB, (err, database) => {
     if(err) throw err;
@@ -22,24 +23,59 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(passport.initialize());
 
 var router = express.Router();
+var signinUser = "";
 
 router.route('/movies/view/:title')
     .get(authJwtController.isAuthenticated, function (req, res) {
         var title = req.params.title;
-        Movie.findOne({title: title}, function(err, movie) {
-            if (err) res.send(err);
+        var viewReview = req.query.reviews;
+        if (viewReview !== "true"){
+            Movie.findOne({title: title}, function(err, movie) {
+                if (err) res.send(err);
 
-            var movieJson = JSON.stringify(movie);
-            res.json(movie);
-        });
+                res.json(movie);
+            });
+        }
+        else{
+            Movie.aggregate([{
+                $match: {
+                    title: title
+                }}, {
+                $lookup:{
+                    from: "reviews",
+                    localField: "title",
+                    foreignField: "movie",
+                    as: "movie_reviews"
+                }
+            }]).exec((err, movie)=>{
+                if (err) res.send(err);
+                res.json(movie);
+            });
+        }
     });
 
 router.route('/movies/viewall')
     .get(authJwtController.isAuthenticated, function (req, res) {
-        Movie.find(function (err, movie) {
-            if (err) res.send(err);
+        var viewReview = req.query.reviews;
+        if (viewReview !== "true"){
+            Movie.find(function (err, movie) {
+                if (err) res.send(err);
+                res.json(movie);
+            });
+        }
+        else{
+            Movie.aggregate([{
+                $lookup:{
+                    from: "reviews",
+                    localField: "title",
+                    foreignField: "movie",
+                    as: "movie_reviews"
+                }
+            }]).exec((err, movie)=>{
+                if (err) res.send(err);
             res.json(movie);
         });
+        }
     });
 
 router.route('/movies/insert')
@@ -99,8 +135,58 @@ router.route('/movies/delete/:title')
     .delete(authJwtController.isAuthenticated, function(req, res){
         Movie.remove({title: req.params.title}, function(err, movie){
             if (err) return res.send(err);
-
+            Review.remove({movie: req.params.title}, function(err, review){
+                if(err) return (res.send(err));
+            });
             res.json({msg: 'Movie delete successful.'});
+        });
+    });
+
+router.route('/reviews/viewall')
+    .get(authJwtController.isAuthenticated, function (req, res) {
+        Review.find(function (err, review) {
+            if (err) res.send(err);
+            res.json(review);
+        });
+    });
+
+router.route('/reviews/viewuser')
+    .get(authJwtController.isAuthenticated, function (req, res) {
+        Review.find({username: signinUser}, function (err, review) {
+            if (err) res.send(err);
+            if (review === null){
+                res.json({msg: "User has not posted any reviews."});
+            }
+            else {
+                res.json(review);
+            }
+        });
+    });
+
+router.route('/reviews/insert/:title')
+    .post(authJwtController.isAuthenticated, function (req, res) {
+        Movie.findOne({title: req.params.title}).exec(function(err, movie){
+            if (movie !== null){
+                var newReview = new Review(req, res);
+                newReview.username = signinUser;
+                newReview.review = req.body.review;
+                newReview.rating = req.body.rating;
+                newReview.movie = req.params.title;
+                newReview.save(function(err) {
+                    if (err) {
+                        // duplicate entry
+                        if (err.code == 11000)
+                            return res.json({ success: false, msg: 'Review already in database.'});
+                        else
+                            return res.send(err);
+                    }
+
+                    res.json({ msg: 'Review insert success.' });
+                });
+            }
+            else{
+                res.json({ msg: 'Movie not found in database. Cannot insert review.'});
+            }
         });
     });
 
@@ -140,6 +226,7 @@ router.post('/signin', function(req, res) {
             if (isMatch) {
                 var userToken = {id: user._id, username: user.username};
                 var token = jwt.sign(userToken, process.env.SECRET_KEY);
+                signinUser = user.username;
                 res.json({success: true, token: 'JWT ' + token});
             }
             else {

@@ -1,0 +1,878 @@
+{
+	"info": {
+		"name": "S_Kim_Assignment4",
+		"_postman_id": "8960baca-9ec0-7de0-5389-252b6123005e",
+		"description": "Tests for Assignment 3",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "User - Sign Up",
+			"description": "",
+			"item": [
+				{
+					"name": "User - Sign Up",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/x-www-form-urlencoded"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "username",
+									"value": "testuser10",
+									"type": "text",
+									"description": ""
+								},
+								{
+									"key": "fullname",
+									"value": "Test User10",
+									"type": "text",
+									"description": ""
+								},
+								{
+									"key": "password",
+									"value": "pw10",
+									"type": "text",
+									"description": ""
+								}
+							]
+						},
+						"url": {
+							"raw": "https://skimhw4.herokuapp.com/signup",
+							"protocol": "https",
+							"host": [
+								"skimhw4",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"signup"
+							]
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "User - Sign Up (User Exists)",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/x-www-form-urlencoded"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "username",
+									"value": "testuser8",
+									"type": "text",
+									"description": ""
+								},
+								{
+									"key": "fullname",
+									"value": "Test User8",
+									"type": "text",
+									"description": ""
+								},
+								{
+									"key": "password",
+									"value": "pw8",
+									"type": "text",
+									"description": ""
+								}
+							]
+						},
+						"url": {
+							"raw": "https://skimhw4.herokuapp.com/signup",
+							"protocol": "https",
+							"host": [
+								"skimhw4",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"signup"
+							]
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "User - Sign Up (Fullname Blank)",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/x-www-form-urlencoded"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "username",
+									"value": "testuser8",
+									"type": "text",
+									"description": ""
+								},
+								{
+									"key": "fullname",
+									"value": "",
+									"type": "text",
+									"description": ""
+								},
+								{
+									"key": "password",
+									"value": "pw8",
+									"type": "text",
+									"description": ""
+								}
+							]
+						},
+						"url": {
+							"raw": "https://skimhw4.herokuapp.com/signup",
+							"protocol": "https",
+							"host": [
+								"skimhw4",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"signup"
+							]
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "User - Sign Up (Username Blank)",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/x-www-form-urlencoded"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "username",
+									"value": "",
+									"type": "text",
+									"description": ""
+								},
+								{
+									"key": "fullname",
+									"value": "Test User8",
+									"type": "text",
+									"description": ""
+								},
+								{
+									"key": "password",
+									"value": "pw8",
+									"type": "text",
+									"description": ""
+								}
+							]
+						},
+						"url": {
+							"raw": "https://skimhw4.herokuapp.com/signup",
+							"protocol": "https",
+							"host": [
+								"skimhw4",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"signup"
+							]
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "User - Sign Up (Password Blank)",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/x-www-form-urlencoded"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "username",
+									"value": "testuser8",
+									"type": "text",
+									"description": ""
+								},
+								{
+									"key": "fullname",
+									"value": "Test User8",
+									"type": "text",
+									"description": ""
+								},
+								{
+									"key": "password",
+									"value": "",
+									"type": "text",
+									"description": ""
+								}
+							]
+						},
+						"url": {
+							"raw": "https://skimhw4.herokuapp.com/signup",
+							"protocol": "https",
+							"host": [
+								"skimhw4",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"signup"
+							]
+						},
+						"description": ""
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "User - Sign In",
+			"description": "",
+			"item": [
+				{
+					"name": "User - Sign In",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"id": "e6488b7e-edc8-4592-85a6-738acc9daecc",
+								"type": "text/javascript",
+								"exec": [
+									""
+								]
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"id": "102aff1b-517f-418f-9912-1e98b9a9b1ce",
+								"type": "text/javascript",
+								"exec": [
+									"var data = JSON.parse(responseBody);",
+									"pm.environment.set(\"authorization\", data.token);"
+								]
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/x-www-form-urlencoded"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "username",
+									"value": "testuser2",
+									"description": "",
+									"type": "text"
+								},
+								{
+									"key": "fullname",
+									"value": "Test User7",
+									"description": "",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "password",
+									"value": "pw2",
+									"description": "",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "https://skimhw4.herokuapp.com/signin",
+							"protocol": "https",
+							"host": [
+								"skimhw4",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"signin"
+							]
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "User - Sign In (Wrong Password)",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"id": "769e26d2-741b-4b4a-8e24-597d1e4cc1ff",
+								"type": "text/javascript",
+								"exec": [
+									""
+								]
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/x-www-form-urlencoded"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "username",
+									"value": "testuser7",
+									"description": "",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "pw",
+									"description": "",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "https://skimhw4.herokuapp.com/signin",
+							"protocol": "https",
+							"host": [
+								"skimhw4",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"signin"
+							]
+						},
+						"description": ""
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Reviews",
+			"description": "",
+			"item": [
+				{
+					"name": "Reviews - Insert",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{authorization}}"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"review\": \"Test Review for Psycho\",\n    \"rating\": 3\n}"
+						},
+						"url": {
+							"raw": "https://skimhw4.herokuapp.com/reviews/insert/Psycho",
+							"protocol": "https",
+							"host": [
+								"skimhw4",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"reviews",
+								"insert",
+								"Psycho"
+							]
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Reviews - Insert (No Movie in DB)",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{authorization}}"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"review\": \"Test review. No movie in database.\",\n    \"rating\": 4\n}"
+						},
+						"url": {
+							"raw": "https://skimhw4.herokuapp.com/reviews/insert/NoMovie",
+							"protocol": "https",
+							"host": [
+								"skimhw4",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"reviews",
+								"insert",
+								"NoMovie"
+							]
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Reviews - Get All User Reviews",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{authorization}}"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"disabled": true
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "https://skimhw4.herokuapp.com/reviews/viewuser",
+							"protocol": "https",
+							"host": [
+								"skimhw4",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"reviews",
+								"viewuser"
+							]
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Reviews - Get All Reviews",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{authorization}}"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"disabled": true
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "https://skimhw4.herokuapp.com/reviews/viewall",
+							"protocol": "https",
+							"host": [
+								"skimhw4",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"reviews",
+								"viewall"
+							]
+						},
+						"description": ""
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Movies - Get",
+			"description": "",
+			"item": [
+				{
+					"name": "Movies - Get All (W/O Reviews)",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{authorization}}"
+							}
+						],
+						"body": {},
+						"url": {
+							"raw": "https://skimhw4.herokuapp.com/movies/viewall?reviews=false",
+							"protocol": "https",
+							"host": [
+								"skimhw4",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"movies",
+								"viewall"
+							],
+							"query": [
+								{
+									"key": "reviews",
+									"value": "false",
+									"equals": true
+								}
+							]
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Movies - Get All (W/ Reviews)",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{authorization}}"
+							}
+						],
+						"body": {},
+						"url": {
+							"raw": "https://skimhw4.herokuapp.com/movies/viewall?reviews=true",
+							"protocol": "https",
+							"host": [
+								"skimhw4",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"movies",
+								"viewall"
+							],
+							"query": [
+								{
+									"key": "reviews",
+									"value": "true",
+									"equals": true
+								}
+							]
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Movies - Get One (W/O Reviews)",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{authorization}}"
+							}
+						],
+						"body": {},
+						"url": {
+							"raw": "https://skimhw4.herokuapp.com/movies/view/Casablanca?reviews=false",
+							"protocol": "https",
+							"host": [
+								"skimhw4",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"movies",
+								"view",
+								"Casablanca"
+							],
+							"query": [
+								{
+									"key": "reviews",
+									"value": "false",
+									"equals": true
+								}
+							]
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Movies - Get One (No Movie W/O Reviews)",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{authorization}}"
+							}
+						],
+						"body": {},
+						"url": {
+							"raw": "https://skimhw4.herokuapp.com/movies/view/NoMovie",
+							"protocol": "https",
+							"host": [
+								"skimhw4",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"movies",
+								"view",
+								"NoMovie"
+							]
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Movies - Get One (W/ Reviews)",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{authorization}}"
+							}
+						],
+						"body": {},
+						"url": {
+							"raw": "https://skimhw4.herokuapp.com/movies/view/Casablanca?reviews=true",
+							"protocol": "https",
+							"host": [
+								"skimhw4",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"movies",
+								"view",
+								"Casablanca"
+							],
+							"query": [
+								{
+									"key": "reviews",
+									"value": "true",
+									"equals": true
+								}
+							]
+						},
+						"description": ""
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Movies - Delete",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "23a76857-7bc3-4822-8596-f8114b82782c",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "{{authorization}}"
+					}
+				],
+				"body": {},
+				"url": {
+					"raw": "https://skimhw4.herokuapp.com/movies/delete/Coco",
+					"protocol": "https",
+					"host": [
+						"skimhw4",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"movies",
+						"delete",
+						"Coco"
+					]
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Movies - Insert",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "23a76857-7bc3-4822-8596-f8114b82782c",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "{{authorization}}"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n        \"title\": \"Inception\",\n        \"year\": 2010,\n        \"genre\": \"Action\",\n        \"actors\": [\n            {\n                \"name\": \"Leonardo DiCaprio\",\n                \"character\": \"Cobb\"\n            },\n            {\n                \"name\": \"Joseph Gordon-Levitt\",\n                \"character\": \"Arthur\"\n            },\n            {\n                \"name\": \"Ellen Page\",\n                \"character\": \"Ariadne\"\n            }\n        ]\n}"
+				},
+				"url": {
+					"raw": "https://skimhw4.herokuapp.com/movies/insert",
+					"protocol": "https",
+					"host": [
+						"skimhw4",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"movies",
+						"insert"
+					]
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Movies - Update",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "23a76857-7bc3-4822-8596-f8114b82782c",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "{{authorization}}"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"title\": \"Fight Club\",\n    \"year\": 1999,\n    \"genre\": \"Drama\",\n    \"actors\": [\n        {\n            \"name\": \"Edward Norton\",\n            \"character\": \"The Narrator\"\n        },\n        {\n            \"name\": \"Brad Pitt\",\n            \"character\": \"Tyler Durden\"\n        },\n        {\n            \"name\": \"Meatloaf\",\n            \"character\": \"Robert Paulsen\"\n        }\n    ]\n}"
+				},
+				"url": {
+					"raw": "https://skimhw4.herokuapp.com/movies/update/Fight Club",
+					"protocol": "https",
+					"host": [
+						"skimhw4",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"movies",
+						"update",
+						"Fight Club"
+					]
+				},
+				"description": ""
+			},
+			"response": []
+		}
+	]
+}

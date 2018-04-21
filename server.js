@@ -147,7 +147,7 @@ router.route('/movies/delete/:title')
 router.route('/reviews/viewall')
     .get(authJwtController.isAuthenticated, function (req, res) {
         Review.find(function (err, review) {
-            if (err) res.send(err);
+            if (err) return res.send(err);
             res.json(review);
         });
     });
@@ -185,6 +185,12 @@ router.route('/reviews/insert/:title')
                         else
                             return res.send(err);
                     }
+
+                    var newRating = ((movie.avgRating * numReview) + req.body.rating) / (numReview + 1);
+
+                    Movie.update({ title: req.params.title }, { $set: { avgRating: newRating } }).exec(function(err){
+                        if (err) return res.send(err);
+                    })
 
                     res.json({ msg: 'Review insert success.' });
                 });

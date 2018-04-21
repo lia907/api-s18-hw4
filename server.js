@@ -169,11 +169,11 @@ router.route('/reviews/insert/:title')
     .post(authJwtController.isAuthenticated, function (req, res) {
         Movie.findOne({title: req.params.title}).exec(function(err, movie){
             if (movie !== null){
-                Review.count({movie: req.params.title}).exec(function(err, numReview){
-                    if (err) {
-                        return res.send(err);
-                    }
-                });
+                // Review.count({movie: req.params.title}).exec(function(err, numReview){
+                //     if (err) {
+                //         return res.send(err);
+                //     }
+                // });
                 var newReview = new Review(req, res);
                 newReview.username = signinUser;
                 newReview.review = req.body.review;
@@ -188,14 +188,14 @@ router.route('/reviews/insert/:title')
                             return res.send(err);
                     }
 
-                    var newRating = (movie.avgRating + newReview.rating) / (numReview + 1);
-
-                    movie.avgRating = newRating;
-                    movie.update(function(err){
-                        if (err){
-                            return res.send(err);
-                        }
-                    });
+                    // var newRating = (movie.avgRating + newReview.rating) / (numReview + 1);
+                    //
+                    // movie.avgRating = newRating;
+                    // movie.update(function(err){
+                    //     if (err){
+                    //         return res.send(err);
+                    //     }
+                    // });
 
                     res.json({ msg: 'Review insert success.' });
                 });

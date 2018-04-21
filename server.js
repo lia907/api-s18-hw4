@@ -169,9 +169,6 @@ router.route('/reviews/insert/:title')
     .post(authJwtController.isAuthenticated, function (req, res) {
         Movie.findOne({title: req.params.title}).exec(function(err, movie){
             if (movie !== null){
-                var numReview = Review.count({movie: req.params.title}, function(err){
-                        if (err) return (res.send(err));
-                    });
                 var newReview = new Review(req, res);
                 newReview.username = signinUser;
                 newReview.review = req.body.review;
@@ -185,12 +182,23 @@ router.route('/reviews/insert/:title')
                         else
                             return res.send(err);
                     }
-
-                    var newRating = ((movie.avgRating * numReview) + req.body.rating) / (numReview + 1);
-
-                    Movie.update({ title: req.params.title }, { $set: { avgRating: newRating } }).exec(function(err){
-                        if (err) return res.send(numReview, newRating);
-                    })
+                    else{
+                        // var newRating = ((movie.avgRating * numReview) + req.body.rating) / (numReview + 1);
+                        Review.count({movie: req.params.title}, function(err, count){
+                            if (err) return res.send(err);
+                            else{
+                                Movie.distinct("avgRating", {title: req.params.title}).exec(function(err, rating){
+                                    if (err) return res.send(err);
+                                    else{
+                                        var newRating = ((rating[0] * (count - 1)) + req.body.rating) / (count);
+                                        Movie.update({ title: req.params.title }, { $set: { avgRating: newRating } }).exec(function(err){
+                                            if (err) return res.send(err);
+                                        });
+                                    }
+                                });
+                            }
+                        });
+                    }
 
                     res.json({ msg: 'Review insert success.' });
                 });

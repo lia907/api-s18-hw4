@@ -8,6 +8,7 @@ var jwt = require('jsonwebtoken');
 var Movie = require('./movie');
 var dotenv = require('dotenv').config();
 var mongoose = require('mongoose');
+var decode = require('jwt-decode');
 var Review = require('./review');
 
 mongoose.connect(process.env.mongoDB, (err, database) => {
@@ -167,10 +168,13 @@ router.route('/reviews/viewuser')
 
 router.route('/reviews/insert/:title')
     .post(authJwtController.isAuthenticated, function (req, res) {
+        var token = req.headers['authorization'];
+        var tokenDecode = decode(token);
+        var username = tokenDecode['username'];
         Movie.findOne({title: req.params.title}).exec(function(err, movie){
             if (movie !== null){
                 var newReview = new Review(req, res);
-                newReview.username = signinUser;
+                newReview.username = username;
                 newReview.review = req.body.review;
                 newReview.rating = req.body.rating;
                 newReview.movie = req.params.title;
@@ -183,7 +187,6 @@ router.route('/reviews/insert/:title')
                             return res.send(err);
                     }
                     else{
-                        // var newRating = ((movie.avgRating * numReview) + req.body.rating) / (numReview + 1);
                         Review.count({movie: req.params.title}, function(err, count){
                             if (err) return res.send(err);
                             else{
@@ -245,7 +248,6 @@ router.post('/signin', function(req, res) {
             if (isMatch) {
                 var userToken = {id: user._id, username: user.username};
                 var token = jwt.sign(userToken, process.env.SECRET_KEY);
-                signinUser = user.username;
                 res.json({success: true, token: 'JWT ' + token});
             }
             else {

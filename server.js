@@ -169,11 +169,9 @@ router.route('/reviews/insert/:title')
     .post(authJwtController.isAuthenticated, function (req, res) {
         Movie.findOne({title: req.params.title}).exec(function(err, movie){
             if (movie !== null){
-                var numReview = 0;
-                Review.count({ movie: req.params.title}, function(err, review){
-                    if (err) return (res.send(err));
-                    numReview = review;
-                });
+                var numReview = Review.count({movie: req.params.title}, function(err){
+                        if (err) return (res.send(err));
+                    });
                 var newReview = new Review(req, res);
                 newReview.username = signinUser;
                 newReview.review = req.body.review;

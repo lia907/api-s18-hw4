@@ -189,7 +189,7 @@ router.route('/reviews/insert/:title')
                     var newRating = ((movie.avgRating * numReview) + req.body.rating) / (numReview + 1);
 
                     Movie.update({ title: req.params.title }, { $set: { avgRating: newRating } }).exec(function(err){
-                        if (err) return res.send(err);
+                        if (err) return res.send(numReview, newRating);
                     })
 
                     res.json({ msg: 'Review insert success.' });

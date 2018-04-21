@@ -63,7 +63,7 @@ router.route('/movies/viewall')
             Movie.find(function (err, movie) {
                 if (err) res.send(err);
                 res.json(movie);
-            });
+            }).sort({ avgRating: -1 });
         }
         else{
             Movie.aggregate([{
@@ -73,7 +73,7 @@ router.route('/movies/viewall')
                     foreignField: "movie",
                     as: "movie_reviews"
                 }
-            }]).exec((err, movie)=>{
+            }, {$sort: {avgRating: -1}}]).exec((err, movie)=>{
                 if (err) res.send(err);
             res.json(movie);
         });

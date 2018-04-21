@@ -8,7 +8,9 @@ var MovieSchema = new Schema(
         year: {type: Number, required: true},
         genre: {type: String, enum: ['Action', 'Adventure', 'Comedy', 'Drama', 'Fantasy', 'Horror',
                 'Mystery', 'Thriller', 'Western'], required: true},
-        actors: {type: Array}
+        actors: {type: Array},
+        imageUrl: {type: String},
+        avgRating: {type: Number}
     }
 );
 

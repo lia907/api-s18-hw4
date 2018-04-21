@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="97029e51-2c36-423b-be2a-75ef4592efb2" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/movie.js" afterPath="$PROJECT_DIR$/movie.js" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change beforePath="$PROJECT_DIR$/server.js" afterPath="$PROJECT_DIR$/server.js" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
@@ -20,11 +20,31 @@
       <file leaf-file-name="server.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/server.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="318">
-              <caret line="244" column="63" lean-forward="true" selection-start-line="244" selection-start-column="63" selection-end-line="244" selection-end-column="63" />
+            <state relative-caret-position="240">
+              <caret line="194" column="33" lean-forward="true" selection-start-line="194" selection-start-column="33" selection-end-line="194" selection-end-column="33" />
               <folding>
-                <marker date="1524275433000" expanded="true" signature="2067:2068" ph="{...}" />
+                <marker date="1524278296000" expanded="true" signature="2067:2068" ph="{...}" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="review.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/review.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="210">
+              <caret line="14" column="43" lean-forward="true" selection-start-line="14" selection-start-column="43" selection-end-line="14" selection-end-column="43" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="auth_jwt.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/auth_jwt.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="0">
+              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -169,12 +189,12 @@
       <workItem from="1522884351702" duration="6000" />
       <workItem from="1523487644399" duration="1007000" />
       <workItem from="1524269105470" duration="10000" />
-      <workItem from="1524274520265" duration="873000" />
+      <workItem from="1524274520265" duration="2874000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="8944000" />
+    <option name="totallyTimeSpent" value="10945000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1280" height="777" extended-state="0" />
@@ -216,7 +236,7 @@
         <state relative-caret-position="360">
           <caret line="24" column="16" lean-forward="true" selection-start-line="24" selection-start-column="16" selection-end-line="24" selection-end-column="16" />
           <folding>
-            <marker date="1524275433000" expanded="true" signature="2067:2068" ph="{...}" />
+            <marker date="1524278296000" expanded="true" signature="2067:2068" ph="{...}" />
           </folding>
         </state>
       </provider>
@@ -234,7 +254,7 @@
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <marker date="1524275433000" expanded="true" signature="2067:2068" ph="{...}" />
+            <marker date="1524278296000" expanded="true" signature="2067:2068" ph="{...}" />
           </folding>
         </state>
       </provider>
@@ -252,7 +272,7 @@
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <marker date="1524275433000" expanded="true" signature="2067:2068" ph="{...}" />
+            <marker date="1524278296000" expanded="true" signature="2067:2068" ph="{...}" />
           </folding>
         </state>
       </provider>
@@ -262,7 +282,7 @@
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <marker date="1524275433000" expanded="true" signature="2067:2068" ph="{...}" />
+            <marker date="1524278296000" expanded="true" signature="2067:2068" ph="{...}" />
           </folding>
         </state>
       </provider>
@@ -272,7 +292,7 @@
         <state relative-caret-position="120">
           <caret line="8" column="35" lean-forward="false" selection-start-line="8" selection-start-column="35" selection-end-line="8" selection-end-column="35" />
           <folding>
-            <marker date="1524275433000" expanded="true" signature="2067:2068" ph="{...}" />
+            <marker date="1524278296000" expanded="true" signature="2067:2068" ph="{...}" />
           </folding>
         </state>
       </provider>
@@ -333,32 +353,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/auth_jwt.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/review.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="210">
-          <caret line="14" column="43" lean-forward="true" selection-start-line="14" selection-start-column="43" selection-end-line="14" selection-end-column="43" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/user.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/package.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="195">
-          <caret line="13" column="30" lean-forward="false" selection-start-line="13" selection-start-column="30" selection-end-line="13" selection-end-column="30" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -370,12 +368,36 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/package.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="195">
+          <caret line="13" column="30" lean-forward="false" selection-start-line="13" selection-start-column="30" selection-end-line="13" selection-end-column="30" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/review.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="210">
+          <caret line="14" column="43" lean-forward="true" selection-start-line="14" selection-start-column="43" selection-end-line="14" selection-end-column="43" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/auth_jwt.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/server.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="318">
-          <caret line="244" column="63" lean-forward="true" selection-start-line="244" selection-start-column="63" selection-end-line="244" selection-end-column="63" />
+        <state relative-caret-position="240">
+          <caret line="194" column="33" lean-forward="true" selection-start-line="194" selection-start-column="33" selection-end-line="194" selection-end-column="33" />
           <folding>
-            <marker date="1524275433000" expanded="true" signature="2067:2068" ph="{...}" />
+            <marker date="1524278296000" expanded="true" signature="2067:2068" ph="{...}" />
           </folding>
         </state>
       </provider>

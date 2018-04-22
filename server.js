@@ -187,7 +187,7 @@ router.route('/reviews/insert/:title')
                             return res.send(err);
                     }
                     else{
-                        Review.count({movie: req.params.title}, function(err, count){
+                        Review.count({movie: req.params.title}).exec(function(err, count){
                             if (err) return res.send(err);
                             else{
                                 Movie.distinct("avgRating", {title: req.params.title}).exec(function(err, rating){

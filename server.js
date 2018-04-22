@@ -187,13 +187,13 @@ router.route('/reviews/insert/:title')
                             return res.send(err);
                     }
                     else{
-                        Review.count({movie: req.params.title}).exec(function(err, count){
+                        Review.find({movie: req.params.title}).count(function(err, numReview){
                             if (err) return res.send(err);
                             else{
                                 Movie.distinct("avgRating", {title: req.params.title}).exec(function(err, rating){
                                     if (err) return res.send(err);
                                     else{
-                                        var newRating = ((rating[0] * (count - 1)) + req.body.rating) / (count);
+                                        var newRating = ((rating[0] * (numReview - 1)) + req.body.rating) / (numReview);
                                         Movie.update({ title: req.params.title }, { $set: { avgRating: newRating } }).exec(function(err){
                                             if (err) return res.send(err);
                                         });
